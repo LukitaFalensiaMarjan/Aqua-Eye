@@ -16,7 +16,6 @@ import {
   ChevronLeft,
   ChevronRight,
 } from 'lucide-react';
-import { useState } from 'react';
 import { useAlerts } from '../../context/AlertContext';
 
 const navItems = [
