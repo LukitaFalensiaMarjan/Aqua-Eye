@@ -4,5 +4,5 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: './', // Menggunakan path relatif agar aman di GitHub Pages (repository apapun)
+  base: '/Aqua-Eye/', // Wajib sama persis dengan nama repository GitHub (termasuk huruf besar/kecil)
 });
