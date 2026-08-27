@@ -1,0 +1,68 @@
+// ============================================================
+// AQUA EYE — Devices Mock Data
+// ============================================================
+
+import type { Device } from '../types';
+
+export const mockDevices: Device[] = [
+  {
+    id: 'AUV-01',
+    name: 'AUV Cikapundung Tengah',
+    type: 'AUV',
+    status: 'online',
+    battery: 82,
+    gpsActive: true,
+    sensorStatus: 'online',
+    cameraStatus: 'online',
+    lastUpdate: '2026-08-26T15:10:00+07:00',
+    location: 'Pos Pemantauan Cikapundung Tengah',
+    coordinates: { lat: -6.9148, lng: 107.6098 },
+    firmwareVersion: 'v2.4.1',
+    galaxyModel: 'Samsung Galaxy S10',
+  },
+  {
+    id: 'AUV-02',
+    name: 'AUV Jembatan Pasupati',
+    type: 'AUV',
+    status: 'online',
+    battery: 64,
+    gpsActive: true,
+    sensorStatus: 'online',
+    cameraStatus: 'online',
+    lastUpdate: '2026-08-26T15:08:00+07:00',
+    location: 'Segmen Cikapundung - Jembatan Pasupati',
+    coordinates: { lat: -6.9020, lng: 107.6155 },
+    firmwareVersion: 'v2.4.1',
+    galaxyModel: 'Samsung Galaxy S9',
+  },
+  {
+    id: 'AUV-03',
+    name: 'AUV Cikapundung Hilir',
+    type: 'buoy',
+    status: 'online',
+    battery: 45,
+    gpsActive: true,
+    sensorStatus: 'online',
+    cameraStatus: 'online',
+    lastUpdate: '2026-08-26T15:05:00+07:00',
+    location: 'Pos Pemantauan Cikapundung Hilir',
+    coordinates: { lat: -6.9175, lng: 107.6091 },
+    firmwareVersion: 'v2.3.8',
+    galaxyModel: 'Samsung Galaxy S8',
+  },
+  {
+    id: 'AUV-04',
+    name: 'AUV Cikapundung Hulu',
+    type: 'station',
+    status: 'warning',
+    battery: 18,
+    gpsActive: true,
+    sensorStatus: 'online',
+    cameraStatus: 'offline',
+    lastUpdate: '2026-08-26T14:00:00+07:00',
+    location: 'Pos Pemantauan Cikapundung Hulu',
+    coordinates: { lat: -6.8620, lng: 107.6170 },
+    firmwareVersion: 'v2.3.5',
+    galaxyModel: 'Samsung Galaxy A52',
+  },
+];

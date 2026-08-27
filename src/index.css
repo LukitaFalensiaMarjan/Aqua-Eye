@@ -1,0 +1,452 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+/* ============================================================
+   AQUA EYE — Neo-Brutalist Design System
+   ============================================================ */
+
+@theme {
+  /* Core Colors */
+  --color-aqua-blue: #0066FF;
+  --color-aqua-cyan: #00D4FF;
+  --color-aqua-navy: #0A1628;
+  --color-aqua-dark: #0D1B2A;
+  --color-aqua-panel: #121E30;
+  --color-aqua-card: #162236;
+  --color-aqua-border: #1E3048;
+
+  /* Semantic */
+  --color-safe: #84CC16;
+  --color-safe-bg: #1a2e0a;
+  --color-caution: #FACC15;
+  --color-caution-bg: #2e2a0a;
+  --color-danger: #EF4444;
+  --color-danger-bg: #2e0a0a;
+  --color-emergency: #FF0040;
+
+  /* Surface */
+  --color-surface-0: #0A1628;
+  --color-surface-1: #0F1E32;
+  --color-surface-2: #162236;
+  --color-surface-3: #1C2D45;
+
+  /* Font families */
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* ============================================================
+   Base Styles
+   ============================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-aqua-dark);
+  color: #e2e8f0;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+code, pre, .font-mono {
+  font-family: var(--font-mono);
+}
+
+/* ============================================================
+   Neo-Brutalist Components
+   ============================================================ */
+
+/* Brutalist Card */
+.brutal-card {
+  background: var(--color-surface-2);
+  border: 3px solid #000;
+  box-shadow: 6px 6px 0px #000;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.brutal-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px #000;
+}
+
+.brutal-card:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000;
+}
+
+/* Brutalist Card - colored variants */
+.brutal-card-safe {
+  border-color: var(--color-safe);
+  box-shadow: 6px 6px 0px var(--color-safe);
+}
+
+.brutal-card-caution {
+  border-color: var(--color-caution);
+  box-shadow: 6px 6px 0px var(--color-caution);
+}
+
+.brutal-card-danger {
+  border-color: var(--color-danger);
+  box-shadow: 6px 6px 0px var(--color-danger);
+}
+
+.brutal-card-emergency {
+  border-color: var(--color-emergency);
+  box-shadow: 6px 6px 0px var(--color-emergency);
+  animation: emergency-pulse 2s ease-in-out infinite;
+}
+
+.brutal-card-blue {
+  border-color: var(--color-aqua-blue);
+  box-shadow: 6px 6px 0px var(--color-aqua-blue);
+}
+
+.brutal-card-cyan {
+  border-color: var(--color-aqua-cyan);
+  box-shadow: 6px 6px 0px var(--color-aqua-cyan);
+}
+
+/* Brutalist Button */
+.brutal-btn {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0px #000;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  position: relative;
+}
+
+.brutal-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0px #000;
+}
+
+.brutal-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0px 0px 0px #000;
+}
+
+.brutal-btn-primary {
+  background: var(--color-aqua-blue);
+  color: white;
+  border-color: #000;
+  box-shadow: 4px 4px 0px #000;
+}
+
+.brutal-btn-danger {
+  background: var(--color-danger);
+  color: white;
+}
+
+.brutal-btn-safe {
+  background: var(--color-safe);
+  color: #000;
+}
+
+.brutal-btn-caution {
+  background: var(--color-caution);
+  color: #000;
+}
+
+.brutal-btn-emergency {
+  background: var(--color-emergency);
+  color: white;
+  animation: emergency-pulse 1.5s ease-in-out infinite;
+}
+
+/* Brutalist Badge */
+.brutal-badge {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0px #000;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+}
+
+/* Brutalist Input */
+.brutal-input {
+  background: var(--color-surface-1);
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0px #000;
+  color: #e2e8f0;
+  font-family: var(--font-body);
+  transition: box-shadow 0.15s ease;
+  outline: none;
+}
+
+.brutal-input:focus {
+  border-color: var(--color-aqua-blue);
+  box-shadow: 4px 4px 0px var(--color-aqua-blue);
+}
+
+/* ============================================================
+   Status Colors
+   ============================================================ */
+
+.status-safe { color: var(--color-safe); }
+.status-caution { color: var(--color-caution); }
+.status-danger { color: var(--color-danger); }
+.status-emergency { color: var(--color-emergency); }
+
+.bg-status-safe { background: var(--color-safe); color: #000; }
+.bg-status-caution { background: var(--color-caution); color: #000; }
+.bg-status-danger { background: var(--color-danger); color: white; }
+.bg-status-emergency { background: var(--color-emergency); color: white; }
+
+/* ============================================================
+   Animations
+   ============================================================ */
+
+@keyframes emergency-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-in-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-scan-line {
+  animation: scan-line 3s linear infinite;
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out;
+}
+
+.animate-slide-in-up {
+  animation: slide-in-up 0.3s ease-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+/* Live indicator */
+.live-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--color-danger);
+  border-radius: 50%;
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+/* Online indicator */
+.online-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-safe);
+  border-radius: 50%;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* ============================================================
+   Gauge Component
+   ============================================================ */
+
+.gauge-ring {
+  transition: stroke-dashoffset 0.8s ease-in-out;
+}
+
+/* ============================================================
+   Camera Feed
+   ============================================================ */
+
+.camera-container {
+  position: relative;
+  background: #000;
+  overflow: hidden;
+}
+
+.camera-scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-aqua-cyan), transparent);
+  opacity: 0.5;
+  animation: scan-line 4s linear infinite;
+}
+
+.camera-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.detection-box {
+  position: absolute;
+  border: 2px solid;
+  background: transparent;
+  pointer-events: none;
+}
+
+.detection-box-safe { border-color: var(--color-safe); }
+.detection-box-caution { border-color: var(--color-caution); }
+.detection-box-danger { border-color: var(--color-danger); }
+.detection-box-emergency { border-color: var(--color-emergency); }
+
+/* ============================================================
+   Scrollbar
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-0);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-3);
+  border-radius: 0;
+  border: 1px solid #000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-aqua-blue);
+}
+
+/* ============================================================
+   Galaxy Device Frame
+   ============================================================ */
+
+.galaxy-frame {
+  width: 100px;
+  height: 200px;
+  border: 3px solid #333;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #1a1a2e 0%, #0f1923 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.galaxy-frame::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 4px;
+  background: #333;
+  border-radius: 2px;
+}
+
+.galaxy-frame-screen {
+  position: absolute;
+  inset: 20px 6px 20px 6px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* ============================================================
+   Leaflet Overrides
+   ============================================================ */
+
+.leaflet-container {
+  background: var(--color-surface-0) !important;
+  border: 3px solid #000;
+  font-family: var(--font-body);
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--color-surface-2) !important;
+  color: #e2e8f0 !important;
+  border: 3px solid #000 !important;
+  box-shadow: 6px 6px 0px #000 !important;
+  border-radius: 0 !important;
+}
+
+.leaflet-popup-tip {
+  background: var(--color-surface-2) !important;
+  border: 2px solid #000;
+}
+
+.leaflet-control-zoom a {
+  background: var(--color-surface-2) !important;
+  color: #e2e8f0 !important;
+  border: 2px solid #000 !important;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .brutal-card {
+    box-shadow: 4px 4px 0px #000;
+  }
+
+  .brutal-btn {
+    box-shadow: 3px 3px 0px #000;
+  }
+}
+
+/* ============================================================
+   Toast
+   ============================================================ */
+
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toast-item {
+  animation: slide-in-right 0.3s ease-out;
+}
