@@ -12,14 +12,25 @@ interface AuthContextType {
   logout: () => void;
 }
 
-const demoUser: UserProfile = {
+const demoOperator: UserProfile = {
   name: 'Operator AQUA EYE',
-  role: 'Operator Lapangan',
+  role: 'operator',
+  roleLabel: 'Operator Lapangan',
   area: 'Sungai Cikapundung, Bandung',
   email: 'operator@aquaeye.id',
   phone: '+62 812 3456 7890',
   joinDate: '2026-01-15',
-  lastLogin: '2026-08-26T14:30:00+07:00',
+  lastLogin: '2026-09-02T18:00:00+07:00',
+};
+
+const demoWarga: UserProfile = {
+  name: 'Warga Bandung',
+  role: 'warga',
+  roleLabel: 'Masyarakat Umum',
+  email: 'warga@gmail.com',
+  phone: '+62 899 9999 9999',
+  joinDate: '2026-08-01',
+  lastLogin: '2026-09-02T18:00:00+07:00',
 };
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -29,9 +40,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<UserProfile | null>(null);
 
   const login = (username: string, password: string): boolean => {
-    if (username === 'operator' && password === 'aquaeye2026') {
+    if (username === 'operator' && password === 'sft2026') {
       setIsAuthenticated(true);
-      setUser(demoUser);
+      setUser(demoOperator);
+      return true;
+    }
+    if (username === 'warga' && password === 'sft2026') {
+      setIsAuthenticated(true);
+      setUser(demoWarga);
       return true;
     }
     return false;

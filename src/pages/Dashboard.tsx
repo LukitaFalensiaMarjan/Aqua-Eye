@@ -5,6 +5,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useScenario } from '../context/ScenarioContext';
 import { useAlerts } from '../context/AlertContext';
+import { useReports } from '../context/ReportContext';
 import { mockDevices } from '../data/devices';
 import PageContainer from '../components/layout/PageContainer';
 import RiskCard from '../components/cards/RiskCard';
@@ -22,8 +23,15 @@ import {
 export default function Dashboard() {
   const { scenario } = useScenario();
   const { activeAlertCount } = useAlerts();
+  const { reports } = useReports();
   const navigate = useNavigate();
   const onlineDevices = mockDevices.filter(d => d.status === 'online').length;
+
+  // Citizen Reports logic
+  const totalReports = reports.length;
+  const newReports = reports.filter(r => r.status === 'new').length;
+  const waitingVerification = reports.filter(r => r.status === 'verification').length;
+  const resolvedReports = reports.filter(r => r.status === 'resolved').length;
 
   return (
     <PageContainer
@@ -62,6 +70,37 @@ export default function Dashboard() {
               {scenario.assessment.risk === 'caution' && 'Kondisi membutuhkan kewaspadaan ekstra sebelum operasi.'}
               {scenario.assessment.risk === 'danger' && 'BAHAYA — Personel dilarang memasuki area tanpa evaluasi.'}
             </p>
+          </div>
+
+          {/* CITIZEN REPORTS SUMMARY */}
+          <div 
+            onClick={() => navigate('/operator/laporan-warga')}
+            className="brutal-card p-4 flex flex-col cursor-pointer hover:-translate-y-1 transition-transform group"
+            style={{
+              background: 'var(--color-surface-2)',
+              border: '3px solid #000',
+              boxShadow: '6px 6px 0px #000',
+            }}
+          >
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="font-heading font-black text-white text-lg">Laporan Warga</h3>
+              <span className="text-[10px] font-mono bg-cyan-400 text-black px-2 py-0.5 font-bold shadow-[2px_2px_0_0_#000] border-2 border-black">TOTAL: {totalReports}</span>
+            </div>
+            
+            <div className="grid grid-cols-3 gap-2">
+              <div className="bg-[var(--color-surface-1)] border-2 border-black p-2 text-center shadow-[2px_2px_0_0_#000]">
+                <div className="text-xl font-black text-cyan-400">{newReports}</div>
+                <div className="text-[9px] font-bold text-gray-400">BARU</div>
+              </div>
+              <div className="bg-[var(--color-surface-1)] border-2 border-black p-2 text-center shadow-[2px_2px_0_0_#000]">
+                <div className="text-xl font-black text-yellow-400">{waitingVerification}</div>
+                <div className="text-[9px] font-bold text-gray-400">VERIFIKASI</div>
+              </div>
+              <div className="bg-[var(--color-surface-1)] border-2 border-black p-2 text-center shadow-[2px_2px_0_0_#000]">
+                <div className="text-xl font-black text-green-400">{resolvedReports}</div>
+                <div className="text-[9px] font-bold text-gray-400">SELESAI</div>
+              </div>
+            </div>
           </div>
 
           {/* Quick Actions */}

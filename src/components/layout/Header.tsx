@@ -2,12 +2,16 @@
 // AQUA EYE — Global Header
 // ============================================================
 
-import { Bell, Wifi, Clock, Menu } from 'lucide-react';
+import { Bell, Wifi, Clock, Menu, RefreshCw } from 'lucide-react';
 import { useAlerts } from '../../context/AlertContext';
+import { useAuth } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 export default function Header({ onMenuClick }: { onMenuClick?: () => void }) {
   const { activeAlertCount } = useAlerts();
+  const { user, login } = useAuth();
+  const navigate = useNavigate();
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
@@ -99,6 +103,19 @@ export default function Header({ onMenuClick }: { onMenuClick?: () => void }) {
           )}
         </button>
 
+        {/* Role Switcher */}
+        <button
+          onClick={() => {
+            login('warga', 'demo123');
+            navigate('/warga/beranda');
+          }}
+          className="hidden md:flex items-center gap-2 px-3 py-1.5 text-[10px] font-bold font-mono text-cyan-400 hover:text-white transition-colors"
+          style={{ border: '2px solid #000', background: 'var(--color-surface-2)' }}
+        >
+          <RefreshCw size={12} />
+          SWITCH TO WARGA
+        </button>
+
         {/* Profile */}
         <div
           className="w-8 h-8 flex items-center justify-center text-xs font-bold text-black"
@@ -108,7 +125,7 @@ export default function Header({ onMenuClick }: { onMenuClick?: () => void }) {
             boxShadow: '2px 2px 0px #000',
           }}
         >
-          OP
+          {user?.role === 'operator' ? 'OP' : 'WR'}
         </div>
       </div>
     </header>

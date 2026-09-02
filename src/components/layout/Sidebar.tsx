@@ -17,16 +17,18 @@ import {
   ChevronRight,
 } from 'lucide-react';
 import { useAlerts } from '../../context/AlertContext';
+import logoAquaEye from '../../assets/logo_aqua_eye.png';
 
 const navItems = [
-  { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
-  { to: '/live-monitoring', icon: Monitor, label: 'Live Monitoring' },
-  { to: '/peta-gis', icon: Map, label: 'Peta GIS' },
-  { to: '/riwayat', icon: Clock, label: 'Riwayat' },
-  { to: '/alert-center', icon: Bell, label: 'Alert Center' },
-  { to: '/perangkat', icon: Cpu, label: 'Perangkat' },
-  { to: '/laporan', icon: FileText, label: 'Laporan' },
-  { to: '/profil', icon: User, label: 'Profil' },
+  { to: '/operator/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+  { to: '/operator/live-monitoring', icon: Monitor, label: 'Live Monitoring' },
+  { to: '/operator/peta-gis', icon: Map, label: 'Peta GIS' },
+  { to: '/operator/riwayat', icon: Clock, label: 'Riwayat' },
+  { to: '/operator/alert-center', icon: Bell, label: 'Alert Center' },
+  { to: '/operator/laporan-warga', icon: User, label: 'Laporan Warga' },
+  { to: '/operator/perangkat', icon: Cpu, label: 'Perangkat' },
+  { to: '/operator/laporan', icon: FileText, label: 'Laporan' },
+  { to: '/operator/profil', icon: User, label: 'Profil' },
 ];
 
 interface SidebarProps {
@@ -73,14 +75,14 @@ export default function Sidebar({
           style={{ borderBottom: '3px solid #000' }}
         >
           <div
-            className="w-10 h-10 flex items-center justify-center flex-shrink-0"
+            className="w-10 h-10 flex items-center justify-center flex-shrink-0 p-0.5"
             style={{
-              background: 'var(--color-aqua-blue)',
+              background: 'var(--color-surface-1)',
               border: '2px solid #000',
               boxShadow: '3px 3px 0px #000',
             }}
           >
-            <Droplets size={22} className="text-white" />
+            <img src={logoAquaEye} alt="AQUA EYE Logo" className="w-full h-full object-cover" />
           </div>
           {!collapsed && (
             <div className="overflow-hidden">
@@ -99,7 +101,7 @@ export default function Sidebar({
           {navItems.map((item) => {
             const isActive = location.pathname === item.to;
             const Icon = item.icon;
-            const showBadge = item.to === '/alert-center' && activeAlertCount > 0;
+            const showBadge = item.to === '/operator/alert-center' && activeAlertCount > 0;
 
             return (
               <NavLink

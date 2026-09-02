@@ -8,6 +8,7 @@ export type AlertStatus = 'active' | 'verified' | 'resolved';
 export type AlertCategory = 'air_quality' | 'visual_hazard' | 'human_detection' | 'device_warning' | 'emergency';
 export type ScenarioKey = 'safe' | 'caution' | 'danger';
 export type DeviceStatus = 'online' | 'offline' | 'warning';
+export type ReportStatus = 'new' | 'verification' | 'in_progress' | 'resolved';
 
 export interface WaterSensorData {
   turbidity: number;       // NTU
@@ -127,12 +128,27 @@ export interface ReportConfig {
 
 export interface UserProfile {
   name: string;
-  role: string;
-  area: string;
+  role: 'operator' | 'warga';
+  roleLabel: string;
+  area?: string;
   email: string;
   phone: string;
   joinDate: string;
   lastLogin: string;
+}
+
+export interface CitizenReport {
+  id: string;
+  category: string;
+  description: string;
+  location: string;
+  coordinates: { lat: number; lng: number };
+  status: ReportStatus;
+  priority: 'low' | 'medium' | 'high' | 'critical';
+  citizen: string;
+  timestamp: string;
+  photoUrl?: string;
+  linkedAlertId?: string;
 }
 
 export interface EmergencyIncident {
