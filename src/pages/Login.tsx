@@ -5,7 +5,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Droplets, Shield, Users, Smartphone, Waves, LogIn, AlertCircle } from 'lucide-react';
+import { Shield, Smartphone, Waves, LogIn, AlertCircle } from 'lucide-react';
 import logoAquaEye from '../assets/logo_aqua_eye.png';
 
 export default function Login() {

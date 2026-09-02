@@ -12,7 +12,6 @@ import {
   Cpu,
   FileText,
   User,
-  Droplets,
   ChevronLeft,
   ChevronRight,
 } from 'lucide-react';
