@@ -18,7 +18,7 @@ export default function WargaBeranda() {
           <Waves size={120} />
         </div>
         <h1 className="font-heading font-black text-2xl text-white mb-2 relative z-10">
-          Halo, Warga!
+          Halo, Masyarakat!
         </h1>
         <p className="text-sm text-gray-300 relative z-10">
           Pantau kondisi sungai di sekitar Anda dan laporkan potensi bahaya dengan cepat.

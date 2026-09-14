@@ -83,7 +83,7 @@ export default function Dashboard() {
             }}
           >
             <div className="flex justify-between items-center mb-4">
-              <h3 className="font-heading font-black text-white text-lg">Laporan Warga</h3>
+              <h3 className="font-heading font-black text-white text-lg">Laporan Masyarakat</h3>
               <span className="text-[10px] font-mono bg-cyan-400 text-black px-2 py-0.5 font-bold shadow-[2px_2px_0_0_#000] border-2 border-black">TOTAL: {totalReports}</span>
             </div>
             

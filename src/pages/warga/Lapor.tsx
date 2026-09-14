@@ -65,7 +65,7 @@ export default function WargaLapor() {
           {isEmergency ? 'LAPORKAN DARURAT' : 'Laporkan Kondisi'}
         </h1>
         <p className="text-xs text-gray-400">
-          {isEmergency ? 'Untuk keadaan yang mengancam nyawa' : 'Pusat Laporan Warga AQUA EYE'}
+          {isEmergency ? 'Untuk keadaan yang mengancam nyawa' : 'Pusat Laporan Masyarakat AQUA EYE'}
         </p>
       </div>
 

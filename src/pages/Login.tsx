@@ -27,7 +27,7 @@ export default function Login() {
 
     if (login(username, password)) {
       if (username === 'operator') navigate('/operator/dashboard');
-      if (username === 'warga') navigate('/warga/beranda');
+      if (username === 'masyarakat') navigate('/warga/beranda');
     } else {
       setError('Username atau password salah.');
     }
@@ -96,7 +96,7 @@ export default function Login() {
 
             <div className="text-center mb-2">
               <h2 className="font-heading font-black text-2xl text-white mb-1">MASUK SISTEM</h2>
-              <p className="text-xs text-gray-400">Gunakan akun Operator atau Warga.</p>
+              <p className="text-xs text-gray-400">Gunakan akun Operator atau Masyarakat.</p>
             </div>
 
             {error && (
@@ -141,7 +141,7 @@ export default function Login() {
             <div className="text-[9px] text-gray-500 text-center font-mono mt-2 bg-[var(--color-surface-1)] p-2 border border-gray-800">
               * Demo mode credentials:<br/>
               Operator: username = <strong>operator</strong>, password = <strong>sft2026</strong><br/>
-              Warga: username = <strong>warga</strong>, password = <strong>sft2026</strong>
+              Masyarakat: username = <strong>masyarakat</strong>, password = <strong>sft2026</strong>
             </div>
           </form>
         </div>

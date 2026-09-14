@@ -24,7 +24,7 @@ const demoOperator: UserProfile = {
 };
 
 const demoWarga: UserProfile = {
-  name: 'Warga Bandung',
+  name: 'Masyarakat Bandung',
   role: 'warga',
   roleLabel: 'Masyarakat Umum',
   email: 'warga@gmail.com',
@@ -45,7 +45,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setUser(demoOperator);
       return true;
     }
-    if (username === 'warga' && password === 'sft2026') {
+    if (username === 'masyarakat' && password === 'sft2026') {
       setIsAuthenticated(true);
       setUser(demoWarga);
       return true;

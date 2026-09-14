@@ -38,7 +38,7 @@ export default function LaporanWarga() {
 
   return (
     <PageContainer
-      title="Laporan Warga"
+      title="Laporan Masyarakat"
       subtitle="Pantau dan verifikasi laporan masyarakat terkait kondisi sungai"
     >
       {/* Summary Cards */}
@@ -134,7 +134,7 @@ export default function LaporanWarga() {
         <Modal
           isOpen={!!selectedReport}
           onClose={() => setSelectedReport(null)}
-          title={`Detail Laporan Warga: ${selectedReport.id}`}
+          title={`Detail Laporan Masyarakat: ${selectedReport.id}`}
         >
           <div className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

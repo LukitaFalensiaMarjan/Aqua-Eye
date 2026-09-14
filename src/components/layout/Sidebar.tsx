@@ -24,7 +24,7 @@ const navItems = [
   { to: '/operator/peta-gis', icon: Map, label: 'Peta GIS' },
   { to: '/operator/riwayat', icon: Clock, label: 'Riwayat' },
   { to: '/operator/alert-center', icon: Bell, label: 'Alert Center' },
-  { to: '/operator/laporan-warga', icon: User, label: 'Laporan Warga' },
+  { to: '/operator/laporan-warga', icon: User, label: 'Laporan Masyarakat' },
   { to: '/operator/perangkat', icon: Cpu, label: 'Perangkat' },
   { to: '/operator/laporan', icon: FileText, label: 'Laporan' },
   { to: '/operator/profil', icon: User, label: 'Profil' },

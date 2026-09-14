@@ -106,14 +106,14 @@ export default function Header({ onMenuClick }: { onMenuClick?: () => void }) {
         {/* Role Switcher */}
         <button
           onClick={() => {
-            login('warga', 'demo123');
+            login('masyarakat', 'sft2026');
             navigate('/warga/beranda');
           }}
           className="hidden md:flex items-center gap-2 px-3 py-1.5 text-[10px] font-bold font-mono text-cyan-400 hover:text-white transition-colors"
           style={{ border: '2px solid #000', background: 'var(--color-surface-2)' }}
         >
           <RefreshCw size={12} />
-          SWITCH TO WARGA
+          SWITCH TO MASYARAKAT
         </button>
 
         {/* Profile */}

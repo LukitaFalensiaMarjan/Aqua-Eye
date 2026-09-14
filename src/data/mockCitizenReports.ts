@@ -13,7 +13,7 @@ export const mockCitizenReports: CitizenReport[] = [
     coordinates: { lat: -6.8988, lng: 107.6080 },
     status: 'new',
     priority: 'high',
-    citizen: 'Warga / Anonim',
+    citizen: 'Masyarakat / Anonim',
     timestamp: '2026-09-02T12:42:00+07:00',
   },
   {
@@ -58,7 +58,7 @@ export const mockCitizenReports: CitizenReport[] = [
     coordinates: { lat: -6.9050, lng: 107.6090 },
     status: 'resolved',
     priority: 'critical',
-    citizen: 'Warga Setempat',
+    citizen: 'Masyarakat Setempat',
     timestamp: '2026-08-25T17:45:00+07:00',
   }
 ];
