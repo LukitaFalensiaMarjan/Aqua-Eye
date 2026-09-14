@@ -7,6 +7,7 @@ import { useScenario } from '../context/ScenarioContext';
 import { useAlerts } from '../context/AlertContext';
 import { useReports } from '../context/ReportContext';
 import { mockDevices } from '../data/devices';
+import { useLiveSensorData } from '../hooks/useLiveSensorData';
 import PageContainer from '../components/layout/PageContainer';
 import RiskCard from '../components/cards/RiskCard';
 import MetricCard from '../components/cards/MetricCard';
@@ -15,7 +16,7 @@ import AIInsightCard from '../components/cards/AIInsightCard';
 import ScenarioSwitcher from '../components/ui/ScenarioSwitcher';
 import StatusBadge from '../components/ui/StatusBadge';
 import {
-  Droplets, Thermometer, FlaskConical, Ruler,
+  Thermometer, FlaskConical,
   AlertTriangle, Cpu, Monitor, ShieldAlert,
   ArrowRight, Waves,
 } from 'lucide-react';
@@ -26,6 +27,7 @@ export default function Dashboard() {
   const { reports } = useReports();
   const navigate = useNavigate();
   const onlineDevices = mockDevices.filter(d => d.status === 'online').length;
+  const live = useLiveSensorData(scenario.sensorData);
 
   // Citizen Reports logic
   const totalReports = reports.length;
@@ -146,46 +148,30 @@ export default function Dashboard() {
             />
           </div>
 
-          {/* Sensor Cards */}
-          <div className="grid grid-cols-2 gap-3">
+          {/* Sensor Cards — 3 Sensor Aktif */}
+          <div className="grid grid-cols-1 gap-3">
             <SensorCard
-              label="Turbidity"
-              value={scenario.sensorData.turbidity}
-              unit="NTU"
-              param="turbidity"
-              icon={<Waves size={16} />}
-            />
-            <SensorCard
-              label="pH"
-              value={scenario.sensorData.ph}
+              label="pH Air"
+              value={live.ph}
               unit=""
               param="ph"
               icon={<FlaskConical size={16} />}
             />
             <SensorCard
-              label="Temperature"
-              value={scenario.sensorData.temperature}
+              label="TDS"
+              value={live.tds}
+              unit="ppm"
+              param="tds"
+              icon={<Waves size={16} />}
+            />
+            <SensorCard
+              label="Suhu Air"
+              value={live.temperature}
               unit="°C"
               param="temperature"
               icon={<Thermometer size={16} />}
             />
-            <SensorCard
-              label="TDS"
-              value={scenario.sensorData.tds}
-              unit="ppm"
-              param="tds"
-              icon={<Droplets size={16} />}
-            />
           </div>
-
-          {/* Depth Card - full width */}
-          <SensorCard
-            label="Kedalaman Air"
-            value={scenario.sensorData.depth}
-            unit="m"
-            param="depth"
-            icon={<Ruler size={16} />}
-          />
         </div>
 
         {/* ============================================

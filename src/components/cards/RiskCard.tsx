@@ -17,9 +17,9 @@ const riskColors: Record<RiskLevel, string> = {
 };
 
 const riskLabels: Record<RiskLevel, string> = {
-  safe: 'SAFE',
-  caution: 'CAUTION',
-  danger: 'DANGER',
+  safe: 'RESIKO MINIM',
+  caution: 'RESIKO CUKUP TINGGI',
+  danger: 'RESIKO TINGGI',
 };
 
 export default function RiskCard({ score, risk, showLabel = true }: RiskCardProps) {

@@ -8,15 +8,13 @@ import PageContainer from '../components/layout/PageContainer';
 import { historyData, historySummary } from '../data/history';
 import { Calendar, BarChart3, TrendingUp, TrendingDown, AlertTriangle } from 'lucide-react';
 
-type ParamKey = 'ph' | 'turbidity' | 'temperature' | 'tds' | 'depth' | 'aquaSafeIndex';
+type ParamKey = 'ph' | 'temperature' | 'tds' | 'aquaSafeIndex';
 
 const paramConfig: Record<ParamKey, { label: string; color: string; unit: string }> = {
   aquaSafeIndex: { label: 'AQUA SAFE Index', color: '#0066FF', unit: '' },
-  turbidity: { label: 'Turbidity', color: '#00D4FF', unit: 'NTU' },
-  ph: { label: 'pH', color: '#84CC16', unit: '' },
-  temperature: { label: 'Temperature', color: '#FACC15', unit: '°C' },
+  ph: { label: 'pH Air', color: '#84CC16', unit: '' },
+  temperature: { label: 'Suhu', color: '#FACC15', unit: '°C' },
   tds: { label: 'TDS', color: '#EF4444', unit: 'ppm' },
-  depth: { label: 'Kedalaman', color: '#A855F7', unit: 'm' },
 };
 
 export default function Riwayat() {
@@ -166,8 +164,8 @@ export default function Riwayat() {
                   }}
                 />
                 <Line type="monotone" dataKey="ph" stroke="#84CC16" strokeWidth={1.5} dot={false} />
-                <Line type="monotone" dataKey="turbidity" stroke="#00D4FF" strokeWidth={1.5} dot={false} />
                 <Line type="monotone" dataKey="tds" stroke="#EF4444" strokeWidth={1.5} dot={false} />
+                <Line type="monotone" dataKey="temperature" stroke="#FACC15" strokeWidth={1.5} dot={false} />
                 <Line type="monotone" dataKey="aquaSafeIndex" stroke="#0066FF" strokeWidth={2} dot={false} />
               </LineChart>
             </ResponsiveContainer>

@@ -209,16 +209,16 @@ export default function LaporanWarga() {
 
                   <div className="space-y-3 mb-4">
                     <div className="flex justify-between items-center">
-                      <span className="text-xs text-gray-400">Turbidity</span>
-                      <span className="text-xs font-bold text-white">{scenario.sensorData.turbidity} NTU</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-xs text-gray-400">pH Level</span>
+                      <span className="text-xs text-gray-400">pH Air</span>
                       <span className="text-xs font-bold text-white">{scenario.sensorData.ph}</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-xs text-gray-400">Water Depth</span>
-                      <span className="text-xs font-bold text-white">{scenario.sensorData.depth} m</span>
+                      <span className="text-xs text-gray-400">TDS</span>
+                      <span className="text-xs font-bold text-white">{scenario.sensorData.tds} ppm</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs text-gray-400">Suhu Air</span>
+                      <span className="text-xs font-bold text-white">{scenario.sensorData.temperature} °C</span>
                     </div>
                   </div>
 

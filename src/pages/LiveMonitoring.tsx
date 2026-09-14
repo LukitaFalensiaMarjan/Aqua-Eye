@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useScenario } from '../context/ScenarioContext';
 import { useAlerts } from '../context/AlertContext';
+import { useLiveSensorData } from '../hooks/useLiveSensorData';
 import PageContainer from '../components/layout/PageContainer';
 import CameraFeed from '../components/camera/CameraFeed';
 import SensorCard from '../components/cards/SensorCard';
@@ -16,9 +17,9 @@ import StatusBadge from '../components/ui/StatusBadge';
 import Modal from '../components/ui/Modal';
 import { useToast } from '../components/ui/Toast';
 import {
-  Waves, FlaskConical, Thermometer, Droplets, Ruler,
+  FlaskConical, Thermometer,
   ShieldAlert, MapPin, Clock, Radio, AlertOctagon,
-  CheckCircle, X,
+  CheckCircle, X, Waves, Activity,
 } from 'lucide-react';
 import type { AIVisionDetection } from '../types';
 
@@ -38,6 +39,7 @@ export default function LiveMonitoring() {
   const { scenario } = useScenario();
   const { addAlert } = useAlerts();
   const { addToast } = useToast();
+  const live = useLiveSensorData(scenario.sensorData);
 
   const [emergencyActive, setEmergencyActive] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
@@ -145,13 +147,23 @@ export default function LiveMonitoring() {
             isEmergency={emergencyActive}
           />
 
-          {/* Sensor Panel */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-            <SensorCard label="Turbidity" value={scenario.sensorData.turbidity} unit="NTU" param="turbidity" icon={<Waves size={14} />} />
-            <SensorCard label="pH" value={scenario.sensorData.ph} unit="" param="ph" icon={<FlaskConical size={14} />} />
-            <SensorCard label="Temperature" value={scenario.sensorData.temperature} unit="°C" param="temperature" icon={<Thermometer size={14} />} />
-            <SensorCard label="TDS" value={scenario.sensorData.tds} unit="ppm" param="tds" icon={<Droplets size={14} />} />
-            <SensorCard label="Kedalaman" value={scenario.sensorData.depth} unit="m" param="depth" icon={<Ruler size={14} />} />
+          {/* Sensor Panel — 3 Sensor Live */}
+          <div
+            className="p-3"
+            style={{ background: 'var(--color-surface-2)', border: '3px solid #000', boxShadow: '4px 4px 0 #000' }}
+          >
+            <div className="flex items-center gap-2 mb-3">
+              <Activity size={12} className="text-cyan-400 animate-pulse" />
+              <span className="text-[10px] font-mono font-bold text-cyan-400 tracking-[0.2em] uppercase">Live Sensor Data</span>
+              <span className="ml-auto text-[9px] font-mono text-gray-500">
+                {live.lastUpdated.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
+              </span>
+            </div>
+            <div className="grid grid-cols-3 gap-3">
+              <SensorCard label="pH Air" value={live.ph} unit="" param="ph" icon={<FlaskConical size={14} />} />
+              <SensorCard label="TDS" value={live.tds} unit="ppm" param="tds" icon={<Waves size={14} />} />
+              <SensorCard label="Suhu Air" value={live.temperature} unit="°C" param="temperature" icon={<Thermometer size={14} />} />
+            </div>
           </div>
         </div>
 

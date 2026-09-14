@@ -11,11 +11,9 @@ export type DeviceStatus = 'online' | 'offline' | 'warning';
 export type ReportStatus = 'new' | 'verification' | 'in_progress' | 'resolved';
 
 export interface WaterSensorData {
-  turbidity: number;       // NTU
   ph: number;
   temperature: number;     // °C
   tds: number;             // ppm
-  depth: number;           // meters
 }
 
 export interface SensorReading extends WaterSensorData {
@@ -43,7 +41,7 @@ export interface AIVisionDetection {
 
 export interface SafetyFactor {
   parameter: string;
-  status: 'NORMAL' | 'MODERATE' | 'HIGH' | 'CRITICAL';
+  status: 'MINIM' | 'SEDANG' | 'CUKUP TINGGI' | 'TINGGI';
   value: string;
   contribution: number;
 }
@@ -54,6 +52,11 @@ export interface SafetyAssessment {
   factors: SafetyFactor[];
   reasoning: string;
   recommendations: string[];
+  // Dual output conclusions
+  sensorConclusion: string;   // ASI-E: kesimpulan berbasis sensor
+  visualConclusion: string;   // VHA: kesimpulan berbasis kamera/visual
+  apdRecommendations: string[];     // Rekomendasi APD spesifik
+  operationGuidelines: string[];    // Panduan operasi yang harus dilakukan
 }
 
 export interface Alert {
@@ -112,10 +115,8 @@ export interface HistoryDataPoint {
   timestamp: string;
   date: string;
   ph: number;
-  turbidity: number;
   temperature: number;
   tds: number;
-  depth: number;
   aquaSafeIndex: number;
 }
 
