@@ -132,9 +132,9 @@ export const scenarios: Record<string, Scenario> = {
     key: 'caution',
     label: 'Caution Scenario',
     sensorData: {
-      ph: 6.7,
-      temperature: 28.3,
-      tds: 482,
+      ph: 6.4,
+      temperature: 24.5,
+      tds: 500,
     },
     visualHazard: {
       level: 'medium',
@@ -143,7 +143,7 @@ export const scenarios: Record<string, Scenario> = {
     },
     detections: cautionDetections,
     assessment: {
-      score: 52,
+      score: 36.5,
       risk: 'caution',
       factors: [
         { parameter: 'pH', status: 'MINIM', value: '6.7', contribution: 2 },

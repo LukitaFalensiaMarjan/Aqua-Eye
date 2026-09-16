@@ -86,7 +86,9 @@ export default function WargaBeranda() {
               AQUA SAFE INDEX: {scenario.assessment.score}
             </div>
             <div className="font-heading font-black text-xl text-black uppercase tracking-wider">
-              {scenario.assessment.risk}
+              {scenario.assessment.risk === 'danger' ? 'RESIKO TINGGI' : 
+               scenario.assessment.risk === 'caution' ? 'RESIKO CUKUP TINGGI' : 
+               'RESIKO MINIM'}
             </div>
           </div>
         </div>

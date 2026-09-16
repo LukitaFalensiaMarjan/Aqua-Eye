@@ -18,7 +18,7 @@ import StatusBadge from '../components/ui/StatusBadge';
 import {
   Thermometer, FlaskConical,
   AlertTriangle, Cpu, Monitor, ShieldAlert,
-  ArrowRight, Waves,
+  ArrowRight, Waves, ClipboardList, CheckCircle,
 } from 'lucide-react';
 
 export default function Dashboard() {
@@ -171,6 +171,64 @@ export default function Dashboard() {
               param="temperature"
               icon={<Thermometer size={16} />}
             />
+          </div>
+
+          {/* Panduan Operasi & Rekomendasi Tindakan */}
+          <div className="grid grid-cols-2 gap-3 mt-4">
+            {/* Panduan Operasi */}
+            <div
+              className="brutal-card p-3"
+              style={{
+                background: 'var(--color-surface-2)',
+                border: '3px solid var(--color-safe)',
+                boxShadow: '4px 4px 0px var(--color-safe)',
+              }}
+            >
+              <div className="flex items-center gap-1.5 mb-2">
+                <ClipboardList size={14} className="text-green-400" />
+                <span className="text-[10px] font-bold font-heading text-green-400 uppercase tracking-wider">
+                  Panduan Operasi
+                </span>
+              </div>
+              <ol className="space-y-1.5 pl-1">
+                {scenario.assessment.operationGuidelines.slice(0, 3).map((op, i) => (
+                  <li key={i} className="flex items-start gap-1.5 text-xs text-gray-300 leading-tight">
+                    <span
+                      className="flex-shrink-0 w-3.5 h-3.5 text-[8px] font-black flex items-center justify-center mt-0.5"
+                      style={{ background: 'var(--color-safe)', color: '#000', border: '1px solid #000' }}
+                    >
+                      {i + 1}
+                    </span>
+                    <span>{op}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            {/* Rekomendasi Tindakan */}
+            <div
+              className="brutal-card p-3"
+              style={{
+                background: 'var(--color-surface-2)',
+                border: '3px solid #000',
+                boxShadow: '4px 4px 0px #000',
+              }}
+            >
+              <div className="flex items-center gap-1.5 mb-2">
+                <CheckCircle size={14} className="text-cyan-400" />
+                <span className="text-[10px] font-bold font-heading text-cyan-400 uppercase tracking-wider">
+                  Rekomendasi
+                </span>
+              </div>
+              <ul className="space-y-1.5 pl-1">
+                {scenario.assessment.recommendations.slice(0, 3).map((rec, i) => (
+                  <li key={i} className="flex items-start gap-1.5 text-xs text-gray-300 leading-tight">
+                    <AlertTriangle size={12} className="flex-shrink-0 mt-0.5 text-yellow-500" />
+                    <span>{rec}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 

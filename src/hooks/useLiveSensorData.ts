@@ -16,11 +16,10 @@ interface LiveSensorData extends WaterSensorData {
  */
 export function useLiveSensorData(base: WaterSensorData): LiveSensorData {
   const fluctuate = useCallback((): LiveSensorData => {
-    const jitter = (range: number) => (Math.random() - 0.5) * 2 * range;
     return {
-      ph: parseFloat(Math.max(4.0, Math.min(10.0, base.ph + jitter(0.08))).toFixed(2)),
-      temperature: parseFloat(Math.max(15, Math.min(40, base.temperature + jitter(0.3))).toFixed(1)),
-      tds: Math.round(Math.max(50, Math.min(1200, base.tds + jitter(12))),),
+      ph: base.ph,
+      temperature: base.temperature,
+      tds: base.tds,
       lastUpdated: new Date(),
       isLive: true,
     };

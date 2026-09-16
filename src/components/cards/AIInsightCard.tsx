@@ -151,61 +151,6 @@ export default function AIInsightCard({ assessment }: AIInsightCardProps) {
         </ul>
       </div>
 
-      {/* ── 5. Panduan Operasi ──────────────────────────── */}
-      <div
-        className="brutal-card p-4"
-        style={{
-          background: 'var(--color-surface-2)',
-          border: '3px solid var(--color-safe)',
-          boxShadow: '5px 5px 0px var(--color-safe)',
-        }}
-      >
-        <div className="flex items-center gap-2 mb-3">
-          <ClipboardList size={16} className="text-green-400" />
-          <span className="text-xs font-bold font-heading text-green-400 uppercase tracking-wider">
-            Panduan Operasi
-          </span>
-        </div>
-        <ol className="space-y-1.5">
-          {assessment.operationGuidelines.map((op, i) => (
-            <li key={i} className="flex items-start gap-2 text-sm text-gray-300">
-              <span
-                className="flex-shrink-0 w-4 h-4 text-[10px] font-black flex items-center justify-center mt-0.5"
-                style={{ background: 'var(--color-safe)', color: '#000', border: '1px solid #000' }}
-              >
-                {i + 1}
-              </span>
-              <span>{op}</span>
-            </li>
-          ))}
-        </ol>
-      </div>
-
-      {/* ── 6. Rekomendasi Umum (legacy) ────────────────── */}
-      <div
-        className="brutal-card p-4"
-        style={{
-          background: 'var(--color-surface-2)',
-          border: '3px solid #000',
-          boxShadow: '5px 5px 0px #000',
-        }}
-      >
-        <div className="flex items-center gap-2 mb-3">
-          <CheckCircle size={16} className="text-cyan-400" />
-          <span className="text-xs font-bold font-heading text-cyan-400 uppercase tracking-wider">
-            Rekomendasi Tindakan
-          </span>
-        </div>
-        <ul className="space-y-2">
-          {assessment.recommendations.map((rec, i) => (
-            <li key={i} className="flex items-start gap-2 text-sm text-gray-300">
-              <AlertTriangle size={14} className="flex-shrink-0 mt-0.5 text-yellow-500" />
-              <span>{rec}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
       {/* ── Prototype Note ──────────────────────────────── */}
       <div className="flex items-start gap-2 text-[10px] font-mono text-gray-500 px-2 leading-relaxed">
         <ShieldAlert size={12} className="flex-shrink-0 mt-0.5 text-yellow-600" />
