@@ -95,7 +95,7 @@ export default function Sidebar({
           )}
         </div>
 
-        {/* Nav Items */}
+        {/* Nav Items s*/}
         <nav className="flex-1 py-3 px-2 flex flex-col gap-1 overflow-y-auto">
           {navItems.map((item) => {
             const isActive = location.pathname === item.to;
