@@ -4,8 +4,8 @@
 
 import type { SafetyAssessment } from '../../types';
 import {
-  Brain, ShieldAlert, CheckCircle, AlertTriangle,
-  Cpu, Camera, HardHat, ClipboardList, ChevronRight,
+  Brain, ShieldAlert,
+  Cpu, Camera, HardHat, ChevronRight,
 } from 'lucide-react';
 
 interface AIInsightCardProps {
