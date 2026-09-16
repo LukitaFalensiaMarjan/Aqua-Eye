@@ -2,7 +2,7 @@
 // AQUA EYE — Main App (Router + Providers)
 // ============================================================
 
-import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { ScenarioProvider } from './context/ScenarioContext';
 import { AlertProvider } from './context/AlertContext';
@@ -96,7 +96,7 @@ function AppRoutes() {
 
 export default function App() {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <HashRouter>
       <AuthProvider>
         <ReportProvider>
           <ScenarioProvider>
@@ -108,6 +108,6 @@ export default function App() {
           </ScenarioProvider>
         </ReportProvider>
       </AuthProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
